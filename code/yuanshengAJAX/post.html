@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            width: 200px;
+            height: 100px;
+            border: solid 1px #903;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="result"></div>
+    <script>
+        //获取元素
+        const result = document.getElementById('result');
+        //绑定事件
+        result.addEventListener('mouseover', function () {
+            // console.log('test'); 测试没问题
+            //1.创建对象
+            const xhr = new XMLHttpRequest();
+            //2.初始化  设置类型与url  
+            xhr.open('POST', 'http://127.0.0.1:8000/server');
+            //设置请求头  两个参数一个是请求头的名字，一个是值
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            // 可以设置自定义响应头
+            xhr.setRequestHeader('name', 'shuai');
+            //设置请求头后会报错，因为是自定义的，不是预定义的请求头，所以报错，如果要不报错，需要在server.js中设置setHeader--见server.js19行
+            //Contetn-Type:请求体内容的类型，后面那一长串就是send中内容的类型。
+            //3.发送 post传参是在send中
+            // xhr.send('a=100&b=200&c=300'); //此处传入的参数可以是任意的格式,前提是服务端能够解析处理
+            xhr.send('a:100&b:200&c:300');
+            //4.事件绑定
+            xhr.onreadystatechange = function () {
+                //判断
+                if (xhr.readyState === 4) {
+                    if (xhr.status >= 200 & xhr.status < 300) {
+                        //处理服务器返回结果
+                        result.innerHTML = xhr.response;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

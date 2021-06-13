@@ -1,0 +1,23 @@
+{
+  "name": "node.js",
+  "version": "1.0.0",
+  "description": "HTTP(hypertext transport protocol)协议【超文本传输协议】，协议详细规定了浏览器和万维网服务器之间互相通信的规则。\r ## 请求报文\r 重点是格式与参数",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/changshuai88/node.js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/changshuai88/node.js/issues"
+  },
+  "homepage": "https://github.com/changshuai88/node.js#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
