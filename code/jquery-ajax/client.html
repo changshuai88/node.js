@@ -61,6 +61,11 @@
                 //失败回调
                 error: function () {
                     console.log('出错了！！');
+                },
+                //头信息
+                headers: { //自定义头需要添加第59行代码setHeader
+                    c: 300,
+                    d: 400
                 }
             });
         });

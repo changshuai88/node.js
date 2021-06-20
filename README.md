@@ -36,3 +36,31 @@ HTTP(hypertext transport protocol)协议【超文本传输协议】，协议详�
 1.管理员身份打开powerShell
 
 2.输入set-ExecutionPolicy RemoteSigned 
+
+# 同源策略
+同源策略（same-Origin policy）最早是Netscape公司提出，是浏览器的一种安全策略
+
+url
+同源：协议、域名、端口号 必须完全相同
+违背同源策略就是跨域
+
+# 跨域
+
+## JSONP
+
+1.JSONP是什么
+JSONP(JSON with padding)是一个非官方的跨域解决方案，纯粹凭借程序员的聪明才智开发出来，只支持get请求。
+2.JSONP怎么工作的
+在网页有一些标签天生具有跨域能里，比如：img link iframe script。
+
+JSONP就是利用script标签的跨域能力来发送请求的。
+
+# CORS
+https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access control CORS
+CORS (cross-origin resource sharing)跨域资源共享，CORS是官方的跨域解决方案，它的特点是不需要在用户端做任何特殊的操作，完全在服务器中进行处理，支持get和post请求。跨域资源共享标准新增了一组http首部字段，允许服务器声明那些源站通过浏览器有权限访问哪些资源
+
+1.CORS怎么工作的
+CORS是通过设置一个响应头来告诉浏览器，该请求允许跨域，浏览器收到该响应后就会对响应放行
+2.CORS使用
+主要是服务器端的设置
+router.get('/textAJAX',function(req,res){})
